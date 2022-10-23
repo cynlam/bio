@@ -10,7 +10,7 @@ output:
     css: ['dd_cv.css', 'resume']
     self_contained: true
     
-# uncomment this line to produce HTML and PDF in RStudio:
+# # uncomment this line to produce HTML and PDF in RStudio:
 knit: pagedown::chrome_print
 ---
 
@@ -51,12 +51,15 @@ Aside
 
 
 ```{r}
-if(params$pdf_mode){
-  cat("View this CV online at https://cynlam.github.io/cv/")
-} else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/cynlam/cv/cyncv.pdf)")
-}
+  cat("View this CV online https://cynlam.github.io/cv/") 
 ```
+  <br><br>
+```{r}
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/cynlam/cv/cyncv.pdf)")
+```
+
+
+
 
 Contact {#contact}
 --------------------------------------------------------------------------------
