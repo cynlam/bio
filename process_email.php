@@ -13,19 +13,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Store the email in a text file
+    // Generate a verification token
+    $token = bin2hex(random_bytes(16));
 
-// Generate a verification token
-$token = bin2hex(random_bytes(16));
-
-// Store the email and token in a text file or database
-file_put_contents("emails.txt", $email . ":" . $token . PHP_EOL, FILE_APPEND);
+    // Store the email and token in a text file
+    file_put_contents("emails.txt", $email . ":" . $token . PHP_EOL, FILE_APPEND);
 
     // Redirect based on conditions
     if ($hasKeyword) {
         header("Location: cyncv.html?email=" . urlencode($email) . "&token=" . urlencode($token));
+        exit();
     } else {
         header("Location: noaccess.html");
+        exit();
     }
 }
 ?>
